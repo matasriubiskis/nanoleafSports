@@ -15,7 +15,7 @@ import argparse
 '''returns the data on your nanoleaf'''
 def info():
 	ipAddress = '192.168.2.31' #your nanoleaf ip
-	token = '1auzweH8pedNzJZHyPTP18V1MAey51Fd' #your nanoleaf token
+	token = '1auzweH8pHSNUadeyPTP18V1MAey51Fd' #your nanoleaf token
 	#TODO: use nanoleaf-setup to automatically find the IPaddress and token
 
 	return ipAddress, token
