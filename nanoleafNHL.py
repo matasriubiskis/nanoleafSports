@@ -14,8 +14,8 @@ import argparse
 
 '''returns the data on your nanoleaf'''
 def info():
-	ipAddress = '192.168.2.31'
-	token = '1auzweH8pedNzJZHyPTP18V1MAey51Fd'
+	ipAddress = '192.168.2.31' #your nanoleaf ip
+	token = '1auzweH8pedNzJZHyPTP18V1MAey51Fd' #your nanoleaf token
 	#TODO: use nanoleaf-setup to automatically find the IPaddress and token
 
 	return ipAddress, token
@@ -47,7 +47,7 @@ def get_games(team):
 			return game
 	
 def main():
-	team = "Boston Bruins"
+	team = "Toronto Maple Leafs"
 	game = get_games(team)
 	live = get_live(game.link)
 	teamEffect = "Leafs"
