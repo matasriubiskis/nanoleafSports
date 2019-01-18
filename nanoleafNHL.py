@@ -21,7 +21,7 @@ WHITE = [255,255,255]
 '''returns the data on your nanoleaf'''
 def info():
 	ipAddress = '192.168.2.31' #your nanoleaf ip
-	token = '1auzweHSE3edNzJZHyPTP18V1MAey51Fd' #your nanoleaf token
+	token = '1auzweH8pedNzJZHyPTP18V1MAey51Fd' #your nanoleaf token
 	#TODO: use nanoleaf-setup to automatically find the IPaddress and token
 	return ipAddress, token
 
@@ -49,9 +49,7 @@ def get_games(team):
 		game = Game(game_info)
 		if team in game.away or team in game.home:
 			return game
-		#else:
-		#	print("No game found")
-		#	os._exit(0)
+
 
 '''Create link for the current games live feed'''
 def get_live(url):
@@ -81,6 +79,7 @@ def main():
 				if currentPlay['result']['event'] == "Goal" and currentPlay['team']['name'] == team:
 					goal()
 					myAurora.effect.effect_set_raw(teamEffect)
+					myAurora.brightness = 30
 			sleep(5)
 
 		except KeyboardInterrupt:
