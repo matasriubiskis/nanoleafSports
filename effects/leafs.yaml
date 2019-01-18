@@ -1,0 +1,37 @@
+{
+    "command": "add",
+    "animName": "leafs",
+    "animType": "random",
+    "colorType": "HSB",
+    "animData": None,
+    "palette": [
+        {
+            "hue": 0,
+            "saturation": 0,
+            "brightness": 100
+        },
+        {
+            "hue": 0,
+            "saturation": 0,
+            "brightness": 50
+        },
+        {
+            "hue": 225,
+            "saturation": 100,
+            "brightness": 50
+        }
+    ],
+    "brightnessRange": {
+        "minValue": 25,
+        "maxValue": 100
+    },
+    "transTime": {
+        "minValue": 4,
+        "maxValue": 4
+    },
+    "delayTime": {
+        "minValue": 0,
+        "maxValue": 0
+    },
+    "loop": True
+}

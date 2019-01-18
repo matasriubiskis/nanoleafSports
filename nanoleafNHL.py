@@ -10,16 +10,20 @@ import itertools
 from nanoleaf import setup
 from nanoleaf import Aurora
 import argparse
+import yaml
+
+
+#Constants
+RED = [255,0,0]
+WHITE = [255,255,255]
 
 
 '''returns the data on your nanoleaf'''
 def info():
 	ipAddress = '192.168.2.31' #your nanoleaf ip
-	token = '1auzweH8pHSNUadeyPTP18V1MAey51Fd' #your nanoleaf token
+	token = '1auzweHSE3edNzJZHyPTP18V1MAey51Fd' #your nanoleaf token
 	#TODO: use nanoleaf-setup to automatically find the IPaddress and token
-
 	return ipAddress, token
-
 
 
 class Game:
@@ -45,15 +49,25 @@ def get_games(team):
 		game = Game(game_info)
 		if team in game.away or team in game.home:
 			return game
+		#else:
+		#	print("No game found")
+		#	os._exit(0)
+
+'''Create link for the current games live feed'''
+def get_live(url):
+	default = "https://statsapi.web.nhl.com"
+	liveURL = default + url
+	return liveURL
 	
+
 def main():
 	team = "Toronto Maple Leafs"
 	game = get_games(team)
 	live = get_live(game.link)
-	teamEffect = "Leafs"
+	teamEffect = load_yaml()
 	myAurora.on = True
 	myAurora.brightness = 30
-	myAurora.effect = teamEffect
+	myAurora.effect_set_raw(teamEffect)
 	allPlays = 0
 	while True:
 		try:
@@ -66,7 +80,7 @@ def main():
 				currentPlay = plays[len(plays)-1]
 				if currentPlay['result']['event'] == "Goal" and currentPlay['team']['name'] == team:
 					goal()
-					myAurora.effect = teamEffect
+					myAurora.effect.effect_set_raw(teamEffect)
 			sleep(5)
 
 		except KeyboardInterrupt:
@@ -86,22 +100,22 @@ def main():
 
 '''runs the goal light I just made my best guess at it so change if you want'''
 def goal():
-	myAurora.rgb = [255,0,0] #Red
-	sleep(5) #5 seconds seemed like a good time for the red light to stay
-	myAurora.rgb = [255,255,255] #White
+	myAurora.rgb = RED #Red
+	sleep(4) #5 seconds seemed like a good time for the red light to stay
+	myAurora.rgb = WHITE #White
 	sleep(0.3)
-	myAurora.rgb = [255,0,0]
-	sleep(5)
-	myAurora.rgb = [255,255,255]
+	myAurora.rgb = RED
+	sleep(4)
+	myAurora.rgb = WHITE
 	sleep(0.3)
-	myAurora.rgb = [255,0,0]
-	sleep(5)
+	myAurora.rgb = RED
+	sleep(4)
 
-'''Create link for the current games live feed'''
-def get_live(url):
-	default = "https://statsapi.web.nhl.com"
-	liveURL = default + url
-	return liveURL
+def load_yaml():
+    location = "effects/leafs.yaml"
+    data = open(location,'r')
+    result = yaml.load(data)
+    return result
 
 if __name__ == '__main__':
 	ipAddress, token = info()
