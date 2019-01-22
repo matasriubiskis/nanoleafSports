@@ -1,0 +1,32 @@
+{
+    "command": "add",
+    "animName": "bruins",
+    "animType": "random",
+    "colorType": "HSB",
+    "animData": None,
+    "palette": [
+        {
+            "hue": 41,
+            "saturation": 89,
+            "brightness": 100
+        },
+        {
+            "hue": 0,
+            "saturation": 0,
+            "brightness": 0
+        }
+    ],
+    "brightnessRange": {
+        "minValue": 25,
+        "maxValue": 100
+    },
+    "transTime": {
+        "minValue": 4,
+        "maxValue": 4
+    },
+    "delayTime": {
+        "minValue": 0,
+        "maxValue": 0
+    },
+    "loop": True
+}

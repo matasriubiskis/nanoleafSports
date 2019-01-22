@@ -1,0 +1,32 @@
+{
+    "command": "add",
+    "animName": "canadians",
+    "animType": "random",
+    "colorType": "HSB",
+    "animData": None,
+    "palette": [
+        {
+            "hue": 354,
+            "saturation": 83,
+            "brightness": 69
+        },
+        {
+            "hue": 234,
+            "saturation": 76,
+            "brightness": 41
+        }
+    ],
+    "brightnessRange": {
+        "minValue": 25,
+        "maxValue": 100
+    },
+    "transTime": {
+        "minValue": 4,
+        "maxValue": 4
+    },
+    "delayTime": {
+        "minValue": 0,
+        "maxValue": 0
+    },
+    "loop": True
+}

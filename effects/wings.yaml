@@ -1,0 +1,32 @@
+{
+    "command": "add",
+    "animName": "wings",
+    "animType": "random",
+    "colorType": "HSB",
+    "animData": None,
+    "palette": [
+        {
+            "hue": 353,
+            "saturation": 92,
+            "brightness": 81
+        },
+        {
+            "hue": 255,
+            "saturation": 0,
+            "brightness": 100
+        }
+    ],
+    "brightnessRange": {
+        "minValue": 25,
+        "maxValue": 100
+    },
+    "transTime": {
+        "minValue": 4,
+        "maxValue": 4
+    },
+    "delayTime": {
+        "minValue": 0,
+        "maxValue": 0
+    },
+    "loop": True
+}

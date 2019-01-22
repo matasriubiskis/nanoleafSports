@@ -1,0 +1,42 @@
+{
+    "command": "add",
+    "animName": "flames",
+    "animType": "random",
+    "colorType": "HSB",
+    "animData": None,
+    "palette": [
+        {
+            "hue": 350,
+            "saturation": 92,
+            "brightness": 78
+        },
+        {
+            "hue": 42,
+            "saturation": 70,
+            "brightness": 95
+        },
+        {
+            "hue": 40,
+            "saturation": 0,
+            "brightness": 6
+        },
+        {
+            "hue": 206,
+            "saturation": 0,
+            "brightness": 100
+        }
+    ],
+    "brightnessRange": {
+        "minValue": 25,
+        "maxValue": 100
+    },
+    "transTime": {
+        "minValue": 4,
+        "maxValue": 4
+    },
+    "delayTime": {
+        "minValue": 0,
+        "maxValue": 0
+    },
+    "loop": True
+}

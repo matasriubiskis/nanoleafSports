@@ -18,13 +18,13 @@ RED = [255,0,0]
 WHITE = [255,255,255]
 
 
-'''returns the data on your nanoleaf'''
-def info():
-	ipAddress = '192.168.2.31' #your nanoleaf ip
-	token = '1auzweH8pedNzJZHyPTP18V1MAey51Fd' #your nanoleaf token
-	#TODO: use nanoleaf-setup to automatically find the IPaddress and token
-	return ipAddress, token
 
+'''returns the data on your nanoleaf'''
+def get_nanoleaf():
+	address = "address.yaml"
+	data = open(address,'r')
+	result = yaml.load(data)
+	return result['ipAddress'], result['token']
 
 class Game:
 	def __init__(self, game_info):
@@ -59,10 +59,10 @@ def get_live(url):
 	
 
 def main():
-	team = "Toronto Maple Leafs"
+	team = select_team()[0]
 	game = get_games(team)
 	live = get_live(game.link)
-	teamEffect = load_yaml()
+	teamEffect = load_yaml(select_team()[1])
 	myAurora.on = True
 	myAurora.brightness = 30
 	myAurora.effect_set_raw(teamEffect)
@@ -90,8 +90,14 @@ def main():
 #def parse_args(args):
 	#TODO: Take in command line arguments (team and brightness)
 
-#def select_team():
-	#TODO: based on command line selection of team
+''' For now, uncomment the team that you want the lights to run for'''
+def select_team():
+	#team = ["Toronto Maple Leafs" , "leafs.yaml"]
+	#team = ["Calgary Flames" , "flames.yaml"]
+	#team = ["Boston Bruins" , "bruins.yaml"]
+	#team = ["Montreal Canadians" , "canadians.yaml"]
+	team = ["Detroit Red Wings", "wings.yaml"]
+	return team
 
 #def setup():
 	#TODO: make sure that nanoleaf knows the effects of each team
@@ -100,7 +106,7 @@ def main():
 '''runs the goal light I just made my best guess at it so change if you want'''
 def goal():
 	myAurora.rgb = RED #Red
-	sleep(4) #5 seconds seemed like a good time for the red light to stay
+	sleep(4) #4 seconds seemed like a good time for the red light to stay
 	myAurora.rgb = WHITE #White
 	sleep(0.3)
 	myAurora.rgb = RED
@@ -110,14 +116,14 @@ def goal():
 	myAurora.rgb = RED
 	sleep(4)
 
-def load_yaml():
-    location = "effects/leafs.yaml"
+def load_yaml(name):
+    location = "effects/" + name
     data = open(location,'r')
     result = yaml.load(data)
     return result
 
 if __name__ == '__main__':
-	ipAddress, token = info()
+	ipAddress, token = get_nanoleaf()
 	myAurora = Aurora(ipAddress, token)
 	main()
 	
