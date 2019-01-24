@@ -78,7 +78,7 @@ def main():
 				currentPlay = plays[len(plays)-1]
 				if currentPlay['result']['event'] == "Goal" and currentPlay['team']['name'] == team:
 					goal()
-					myAurora.effect.effect_set_raw(teamEffect)
+					myAurora.effect_set_raw(teamEffect)
 					myAurora.brightness = 30
 			sleep(5)
 
@@ -92,11 +92,11 @@ def main():
 
 ''' For now, uncomment the team that you want the lights to run for'''
 def select_team():
-	#team = ["Toronto Maple Leafs" , "leafs.yaml"]
+	team = ["Toronto Maple Leafs" , "leafs.yaml"]
 	#team = ["Calgary Flames" , "flames.yaml"]
 	#team = ["Boston Bruins" , "bruins.yaml"]
 	#team = ["Montreal Canadians" , "canadians.yaml"]
-	team = ["Detroit Red Wings", "wings.yaml"]
+	#team = ["Detroit Red Wings", "wings.yaml"]
 	return team
 
 #def setup():
